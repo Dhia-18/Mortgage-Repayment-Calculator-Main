@@ -1,0 +1,344 @@
+@import url("reset.css");
+
+:root{
+    --lime:hsl(61, 70%, 52%);
+    --red:hsl(4, 69%, 50%);
+    --slate-100:hsl(202, 86%, 94%);
+    --slate-300:hsl(203, 41%, 72%);
+    --slate-500:hsl(200, 26%, 54%);
+    --slate-700:hsl(200, 24%, 40%);
+    --slate-900:hsl(202, 55%, 16%);
+
+    --before-error-background:hsl(202, 86%, 94%);
+    --before-error-color:hsl(200, 24%, 40%);
+}
+
+*{
+    margin:0;
+    padding: 0;
+    font-family: "Plus Jakarta Sans";
+    font-weight: 500;
+}
+
+label{
+    color:var(--slate-500);
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.input-container,.before-clicking-result-container,.after-clicking-result-container{
+    padding:1rem;
+}
+
+/* Styling the input container */
+
+/* Styling the input container header */
+
+.input-container-header{
+    display: flex;
+    flex-direction: column;
+    align-items: first baseline;
+    gap: 0.5rem;
+}
+
+.input-container-header h1{
+    color:var(--slate-900);
+    font-size: 22px;
+    font-weight: 700;
+}
+
+#clear-btn{
+    cursor: pointer;
+    color:var(--slate-500);
+    background-color: transparent;
+    border:none;
+    text-decoration: underline;
+    text-decoration-color: var(--slate-500);
+}
+
+#clear-btn:hover{
+    color:var(--slate-900);
+    text-decoration-color: var(--slate-900);
+}
+
+/* Styling the form container */
+
+form{
+    margin-top: 1.5rem;
+
+    display: flex;
+    flex-direction: column;
+    gap:1rem;
+}
+
+input{
+    cursor: pointer;
+}
+
+.mortgage-amount,.mortgage-term,.interest-rate,.mortgage-type{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap:0.5rem;
+}
+
+input[type=number]{
+    padding:0.7rem;
+
+    color:var(--slate-900);
+    border:1px solid var(--slate-500);
+    border-radius: 4px;
+
+    font-weight: 700;
+}
+
+input[type=number]:focus,input[type=number]:hover{
+    outline:none;
+    border-color: var(--slate-900);
+}
+
+#mortgage-amount-input{
+    padding-left: 3.5rem;
+}
+
+.mortgage-amount::before{
+    content: "£";
+    position: absolute;
+    top:1.7rem;
+    left:0.07rem;
+    
+    color:var(--before-error-color);
+    font-weight: 700;
+    background-color: var(--before-error-background);
+    border-radius: 4px 0 0 4px;
+    padding:0.45rem 1rem;
+}
+
+.mortgage-term::after,.interest-rate::after{
+    content: "";
+    position: absolute;
+    top:1.7rem;
+    right:0.05rem;
+
+    color:var(--before-error-color);
+    font-weight: 700;
+    background-color: var(--before-error-background);
+    border-radius: 0 4px 4px 0;
+    padding:0.47rem 0.7rem;
+}
+
+.mortgage-term::after{
+    content: "years";
+}
+
+.interest-rate::after{
+    content: "%";
+}
+
+.mortgage-type div{
+    cursor: pointer;
+    border: 1px solid var(--slate-500);
+    border-radius: 4px;
+    padding:0.7rem 1rem;
+    
+    display: flex;
+    align-items: center;
+    gap:0.7rem;
+}
+
+.mortgage-type div:hover{
+    outline: none;
+    border-color: var(--lime);
+}
+
+.mortgage-type div label{
+    color:var(--slate-900);
+    font-weight: 700;
+}
+
+/* Changing the radio button */
+
+input[type=radio]{
+    appearance: none;
+    width:1rem;
+    height: 1rem;
+
+    border:1px solid var(--slate-900);
+    border-radius: 100%;
+    display: grid;
+    place-content: center;
+}
+
+input[type="radio"]::before {
+    content: "";
+    width:0.6rem;
+    height: 0.6rem;
+    border-radius: 100%;
+}
+
+input[type=radio]:checked::before{
+    background-color: var(--lime);
+}
+
+input[type=radio]:checked{
+    border-color: var(--lime);
+}
+
+button[type=submit]{
+    cursor: pointer;
+    width:100%;
+    margin-top: 1.5rem;
+    padding:0.65rem 2rem;
+    background-color: var(--lime);
+    border:none;
+    border-radius: 20px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap:0.5rem;
+}
+
+button[type=submit]:hover{
+    opacity: 0.8;
+}
+
+button[type=submit] p{
+    font-weight: 700;
+}
+
+.message-error{
+    color:var(--red);
+    font-size: 14px;
+}
+
+/* Styling the pre-result container */
+
+.pre-result-container{
+    padding:1.5rem 0;
+    background-color:var(--slate-900);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.pre-result-container h2,.pos-result-container h2{
+    margin:0.7rem 0;
+    color:white;
+    font-size: 22px;
+}
+
+.pre-result-container p,.pos-result-container p{
+    color:var(--slate-500);
+}
+
+/* Styling the pos-result container */
+
+.pos-result-container{
+    padding:1rem;
+    background-color: var(--slate-900);
+}
+
+/* Styling the result container */
+
+.result-container{
+    padding:1rem;
+    margin-top: 1rem;
+
+    background-color: hsl(202, 55%, 8%);
+    border-radius: 8px;
+    box-shadow: 0px -4.5px 0px -1px var(--lime);
+}
+
+.result-container h1{
+    margin-top: 0.2rem;
+    color:var(--lime);
+    font-size: 40px;
+    font-weight: 700;
+}
+
+.result-container h2{
+    font-size: 25px;
+}
+
+hr{
+    margin: 1rem 0;
+    border:none;
+    border-bottom: 2px solid var(--slate-900);
+}
+
+.hidden{
+    display: none;
+}
+
+@media (min-width:50rem){
+    body{
+        background-color: var(--slate-100);
+    }
+
+    main{
+        max-width: 58rem;
+        background-color: white;
+        border-radius: 15px;
+
+        display: flex;
+    }
+
+    .input-container{
+        padding:2rem;
+    }
+
+    .pre-result-container{
+        padding:1rem;
+        border-radius: 0 15px 15px 70px;
+    }
+
+    .input-container-header{
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    form{
+        display: grid;
+        grid-template-columns: 185px 185px;
+        grid-template-rows: 0.7fr 0.7fr 1.5fr;
+        grid-template-areas: 
+            'amount amount'
+            'term rate'
+            'type type';
+    }
+
+    .mortgage-amount{
+        grid-area: amount;
+    }
+
+    .mortgage-type{
+        grid-area: type;
+    }
+
+    button[type=submit]{
+        width:fit-content;
+    }
+
+    /* Styling the result container */
+
+    .pos-result-container{
+        padding:2rem;
+        border-radius: 0 15px 15px 70px;
+    }
+
+    .result-container{
+        padding:1rem 2rem;
+    }
+
+    .result-container h1{
+        font-size: 50px;
+    }
+}
