@@ -8,9 +8,6 @@
     --slate-500:hsl(200, 26%, 54%);
     --slate-700:hsl(200, 24%, 40%);
     --slate-900:hsl(202, 55%, 16%);
-
-    --before-error-background:hsl(202, 86%, 94%);
-    --before-error-color:hsl(200, 24%, 40%);
 }
 
 *{
@@ -105,38 +102,28 @@ input[type=number]:focus,input[type=number]:hover{
     padding-left: 3.5rem;
 }
 
-.mortgage-amount::before{
-    content: "£";
+.mortgage-amount span{
     position: absolute;
-    top:1.7rem;
+    top:1.65rem;
     left:0.07rem;
     
-    color:var(--before-error-color);
+    color:var(--slate-700);
     font-weight: 700;
-    background-color: var(--before-error-background);
+    background-color: var(--slate-100);
     border-radius: 4px 0 0 4px;
-    padding:0.45rem 1rem;
+    padding:0.47rem 1rem;
 }
 
-.mortgage-term::after,.interest-rate::after{
-    content: "";
+.mortgage-term span,.interest-rate span{
     position: absolute;
     top:1.7rem;
     right:0.05rem;
 
-    color:var(--before-error-color);
+    color:var(--slate-700);
     font-weight: 700;
-    background-color: var(--before-error-background);
+    background-color: var(--slate-100);
     border-radius: 0 4px 4px 0;
     padding:0.47rem 0.7rem;
-}
-
-.mortgage-term::after{
-    content: "years";
-}
-
-.interest-rate::after{
-    content: "%";
 }
 
 .mortgage-type div{
@@ -156,6 +143,7 @@ input[type=number]:focus,input[type=number]:hover{
 }
 
 .mortgage-type div label{
+    cursor: pointer;
     color:var(--slate-900);
     font-weight: 700;
 }
@@ -308,7 +296,7 @@ hr{
     form{
         display: grid;
         grid-template-columns: 185px 185px;
-        grid-template-rows: 0.7fr 0.7fr 1.5fr;
+        grid-template-rows: 0.7fr 0.7fr 1.2fr;
         grid-template-areas: 
             'amount amount'
             'term rate'

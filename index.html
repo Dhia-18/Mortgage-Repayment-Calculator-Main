@@ -18,32 +18,35 @@
       <form>
         <div class="mortgage-amount">
           <label>Mortgage Amount</label>
-          <input id="mortage-amount-input" type="number">
-          <p class="message-error hidden">this field is required</p>
+          <input id="mortgage-amount-input" type="number">
+          <span class="currency">£</span>
+          <p id="amount-error" class="message-error hidden">this field is required</p>
         </div>
 
         <div class="mortgage-term">
           <label>Mortgage Term</label>
-          <input it="mortage-term-input" type="number">
-          <p class="message-error hidden">this field is required</p>
+          <input id="mortgage-term-input" type="number">
+          <span class="currency">years</span>
+          <p id="term-error" class="message-error hidden">this field is required</p>
         </div>
 
         <div class="interest-rate">
           <label>Interest Rate</label>
           <input id="interest-rate-input" type="number">
-          <p class="message-error hidden">this field is required</p>
+          <span class="currency">%</span>
+          <p id="rate-error" class="message-error hidden">this field is required</p>
         </div>
 
         <div class="mortgage-type">
           <div>
-            <input type="radio" name="type">
+            <input type="radio" name="type" value="repayment">
             <label>Repayment</label>
           </div>
           <div>
-            <input type="radio" name="type">
+            <input type="radio" name="type" value="interest only">
             <label>Interest Only</label>
           </div>
-          <p class="message-error hidden">this field is required</p>
+          <p id="type-error" class="message-error hidden">this field is required</p>
         </div>
       </form>
       <button type="submit">
